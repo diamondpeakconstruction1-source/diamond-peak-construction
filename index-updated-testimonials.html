@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diamond Peak Construction | General Contracting</title>
+<meta name="description" content="Diamond Peak Construction provides professional general contracting services throughout Utah and surrounding states. 20 years of experience. Licensed and insured.">
+
+<style>
+:root {
+--black:#090909;
+--charcoal:#141414;
+--gold:#c9a24a;
+--light-gold:#ead49a;
+--silver:#d8d8d8;
+--white:#f7f7f5;
+}
+* {box-sizing:border-box;margin:0;padding:0}
+html {scroll-behavior:smooth}
+body {font-family:Georgia, "Times New Roman", serif;background:var(--black);color:var(--white);line-height:1.6}
+a {color:inherit;text-decoration:none}
+.container {width:min(1120px,92%);margin:auto}
+nav {position:absolute;top:0;left:0;width:100%;z-index:10;border-bottom:1px solid rgba(234,212,154,.25)}
+.nav-inner {display:flex;justify-content:space-between;align-items:center;padding:18px 0}
+.nav-logo {font-family:Arial,sans-serif;font-weight:700;letter-spacing:3px;font-size:14px}
+.nav-links {display:flex;gap:28px;font-family:Arial,sans-serif;font-size:12px;text-transform:uppercase;letter-spacing:1.5px}
+.nav-links a:hover {color:var(--light-gold)}
+.hero {min-height:100vh;display:flex;align-items:center;text-align:center;background:
+radial-gradient(circle at 50% 25%,rgba(201,162,74,.12),transparent 34%),
+linear-gradient(180deg,#111 0%,#090909 100%);position:relative;overflow:hidden}
+.hero:after {content:"";position:absolute;inset:auto 0 0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.logo {width:min(430px,72vw);margin:45px auto 20px;display:block;filter:drop-shadow(0 10px 22px rgba(0,0,0,.55))}
+.kicker {font-family:Arial,sans-serif;color:var(--light-gold);font-size:12px;letter-spacing:4px;text-transform:uppercase}
+h1 {font-size:clamp(38px,6vw,72px);font-weight:500;line-height:1.05;margin:14px 0}
+.hero p {font-family:Arial,sans-serif;color:#cfcfcf;max-width:700px;margin:0 auto 30px;font-size:17px}
+.btn {display:inline-block;background:linear-gradient(135deg,#e8cf8d,#b88b2f);color:#111;padding:14px 26px;border-radius:2px;font-family:Arial,sans-serif;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-size:12px;box-shadow:0 8px 25px rgba(201,162,74,.18);border:0;cursor:pointer}
+.btn:hover {transform:translateY(-1px)}
+section {padding:90px 0}
+.section-dark {background:#0d0d0d}
+.section-head {text-align:center;max-width:750px;margin:0 auto 48px}
+.section-head .kicker {font-size:11px}
+h2 {font-size:clamp(32px,4vw,50px);font-weight:500;margin:8px 0 14px}
+.section-head p {font-family:Arial,sans-serif;color:#aaa}
+.cards {display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card {padding:34px;border:1px solid rgba(255,255,255,.1);background:linear-gradient(145deg,#171717,#0e0e0e);min-height:220px}
+.card .num {font-family:Arial,sans-serif;color:var(--gold);font-size:12px;letter-spacing:2px}
+.card h3 {font-size:26px;margin:14px 0 10px;font-weight:500}
+.card p {font-family:Arial,sans-serif;color:#aaa;font-size:14px}
+.about {display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.about-copy p {font-family:Arial,sans-serif;color:#bdbdbd;margin-bottom:18px}
+.badges {display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.badge {border-top:1px solid var(--gold);padding:18px 4px}
+.badge strong {display:block;font-size:22px;font-weight:500}
+.badge span {font-family:Arial,sans-serif;color:#999;font-size:12px;text-transform:uppercase;letter-spacing:1px}
+
+/* Testimonials */
+.testimonials {background:#0d0d0d;border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05)}
+.review-grid {display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:stretch}
+.review-card {padding:32px;border:1px solid rgba(255,255,255,.1);background:linear-gradient(145deg,#171717,#0e0e0e)}
+.review-stars {color:var(--light-gold);font-family:Arial,sans-serif;letter-spacing:3px;font-size:18px;margin-bottom:16px}
+.review-card h3 {font-size:25px;font-weight:500;margin-bottom:10px}
+.review-card p {font-family:Arial,sans-serif;color:#aaa;font-size:14px}
+.review-meta {margin-top:22px;padding-top:16px;border-top:1px solid rgba(255,255,255,.08);font-family:Arial,sans-serif;font-size:12px;color:#888;text-transform:uppercase;letter-spacing:1px}
+.review-form {padding:32px;border:1px solid rgba(201,162,74,.35);background:linear-gradient(145deg,#151515,#0b0b0b)}
+.review-form h3 {font-size:28px;font-weight:500;margin-bottom:8px}
+.review-form > p {font-family:Arial,sans-serif;color:#999;font-size:13px;margin-bottom:22px}
+.form-group {margin-bottom:16px}
+.form-group label {display:block;font-family:Arial,sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:1.4px;color:#bbb;margin-bottom:7px}
+.form-group input[type="text"],
+.form-group textarea {width:100%;border:1px solid rgba(255,255,255,.14);background:#0a0a0a;color:var(--white);padding:12px 13px;font-family:Arial,sans-serif;font-size:14px;border-radius:2px;outline:none}
+.form-group input[type="text"]:focus,
+.form-group textarea:focus {border-color:var(--gold)}
+.form-group textarea {min-height:115px;resize:vertical}
+.rating {display:flex;flex-direction:row-reverse;justify-content:flex-end;gap:5px}
+.rating input {display:none}
+.rating label {font-size:28px;color:#555;cursor:pointer;line-height:1}
+.rating label:hover,
+.rating label:hover ~ label,
+.rating input:checked ~ label {color:var(--light-gold)}
+.permission {display:flex;gap:10px;align-items:flex-start;font-family:Arial,sans-serif;color:#999;font-size:12px;line-height:1.45;margin:14px 0 20px}
+.permission input {margin-top:3px;accent-color:var(--gold)}
+.review-note {font-family:Arial,sans-serif;color:#777;font-size:11px;margin-top:12px}
+.contact {text-align:center;background:linear-gradient(135deg,#151515,#090909)}
+.email {font-family:Arial,sans-serif;color:var(--light-gold);font-size:clamp(18px,3vw,28px);display:inline-block;margin:18px 0 28px}
+footer {padding:28px 0;text-align:center;border-top:1px solid rgba(255,255,255,.08);font-family:Arial,sans-serif;color:#777;font-size:12px}
+
+@media(max-width:760px){
+.nav-links{display:none}
+.cards,.about,.review-grid{grid-template-columns:1fr}
+.hero{padding:80px 0}
+section{padding:65px 0}
+.review-form,.review-card{padding:25px}
+}
+</style>
+</head>
+
+<body>
+<nav>
+<div class="container nav-inner">
+<div class="nav-logo">DIAMOND PEAK</div>
+<div class="nav-links">
+<a href="#services">Services</a>
+<a href="#about">About</a>
+<a href="#testimonials">Reviews</a>
+<a href="#contact">Contact</a>
+</div>
+</div>
+</nav>
+
+<header class="hero">
+<div class="container">
+<img class="logo" src="diamond-peak-logo.png" alt="Diamond Peak Construction logo">
+<div class="kicker">General Contracting • Utah & Surrounding States</div>
+<h1>Built Strong.<br>Built Right.</h1>
+<p>Professional general contracting backed by 20 years of experience, craftsmanship, and a commitment to doing the job right.</p>
+<a class="btn" href="#contact">Request a Free Estimate</a>
+</div>
+</header>
+
+<section id="services" class="section-dark">
+<div class="container">
+<div class="section-head">
+<div class="kicker">What We Do</div>
+<h2>General Contracting</h2>
+<p>From planning through completion, Diamond Peak Construction brings dependable project management and quality workmanship to every build.</p>
+</div>
+<div class="cards">
+<div class="card"><div class="num">01</div><h3>Project Management</h3><p>Clear coordination, scheduling, and communication from the first conversation to final completion.</p></div>
+<div class="card"><div class="num">02</div><h3>Quality Construction</h3><p>Experienced workmanship with attention to the details that make a finished project stand out.</p></div>
+<div class="card"><div class="num">03</div><h3>Built to Last</h3><p>A professional approach focused on durable results, reliable service, and customer satisfaction.</p></div>
+</div>
+</div>
+</section>
+
+<section id="about">
+<div class="container about">
+<div class="about-copy">
+<div class="kicker">The Diamond Peak Difference</div>
+<h2>Experience You Can Build On.</h2>
+<p>For 20 years, Diamond Peak Construction has been focused on delivering quality construction and dependable service.</p>
+<p>We proudly serve customers throughout Utah and surrounding states, bringing a professional, premium approach to every project.</p>
+<a class="btn" href="#contact">Talk About Your Project</a>
+</div>
+<div class="badges">
+<div class="badge"><strong>20 Years</strong><span>Experience</span></div>
+<div class="badge"><strong>Licensed</strong><span>Professional Service</span></div>
+<div class="badge"><strong>Insured</strong><span>Peace of Mind</span></div>
+<div class="badge"><strong>Utah</strong><span>& Surrounding States</span></div>
+</div>
+</div>
+</section>
+
+<section id="testimonials" class="testimonials">
+<div class="container">
+<div class="section-head">
+<div class="kicker">Client Reviews</div>
+<h2>What Our Clients Say</h2>
+<p>Your feedback matters to us. Share your experience with Diamond Peak Construction and help future clients know what they can expect from our team.</p>
+</div>
+
+<div class="review-grid">
+<div class="review-card">
+<div class="review-stars">★★★★★</div>
+<h3>Your experience matters.</h3>
+<p>We are building this section with real feedback from our customers. After you submit a review, Diamond Peak Construction will review it before publishing it on the website.</p>
+<div class="review-meta">Real clients • Real projects • Real feedback</div>
+</div>
+
+<div class="review-form">
+<h3>Leave a Review</h3>
+<p>Tell us about your experience. Your review will be sent directly to Diamond Peak Construction for review.</p>
+
+<form id="reviewForm">
+<div class="form-group">
+<label>Your name *</label>
+<input type="text" id="reviewName" required>
+</div>
+
+<div class="form-group">
+<label>Company name (optional)</label>
+<input type="text" id="reviewCompany">
+</div>
+
+<div class="form-group">
+<label>Your rating *</label>
+<div class="rating" aria-label="Choose a rating from 1 to 5 stars">
+<input type="radio" id="star5" name="rating" value="5" required><label for="star5" title="5 stars">★</label>
+<input type="radio" id="star4" name="rating" value="4"><label for="star4" title="4 stars">★</label>
+<input type="radio" id="star3" name="rating" value="3"><label for="star3" title="3 stars">★</label>
+<input type="radio" id="star2" name="rating" value="2"><label for="star2" title="2 stars">★</label>
+<input type="radio" id="star1" name="rating" value="1"><label for="star1" title="1 star">★</label>
+</div>
+</div>
+
+<div class="form-group">
+<label>Your review *</label>
+<textarea id="reviewText" required placeholder="Tell us about the quality of our work, communication, professionalism, or your overall experience."></textarea>
+</div>
+
+<label class="permission">
+<input type="checkbox" id="permission" required>
+<span>I give Diamond Peak Construction permission to publish my review and first name/company on its website and marketing materials.</span>
+</label>
+
+<button class="btn" type="submit">Submit Review</button>
+<p class="review-note">Submitting this form opens your email app with the review details ready to send to Diamond Peak Construction.</p>
+</form>
+</div>
+</div>
+</div>
+</section>
+
+<section id="contact" class="contact">
+<div class="container">
+<div class="section-head">
+<div class="kicker">Start Your Project</div>
+<h2>Let's Build Something Great.</h2>
+<p>Tell us about your project and the Diamond Peak Construction team will be ready to connect.</p>
+<a class="email" href="mailto:diamondpeakconstruction1@gmail.com">diamondpeakconstruction1@gmail.com</a><br>
+<a class="btn" href="mailto:diamondpeakconstruction1@gmail.com?subject=Diamond%20Peak%20Construction%20Estimate%20Request">Email for a Free Estimate</a>
+</div>
+</div>
+</section>
+
+<footer>
+<div class="container">© 2026 Diamond Peak Construction • General Contracting • Utah & Surrounding States</div>
+</footer>
+
+<script>
+document.getElementById("reviewForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const name = document.getElementById("reviewName").value.trim();
+  const company = document.getElementById("reviewCompany").value.trim();
+  const review = document.getElementById("reviewText").value.trim();
+  const rating = document.querySelector('input[name="rating"]:checked');
+
+  if (!rating) {
+    alert("Please select a star rating.");
+    return;
+  }
+
+  const subject = "Diamond Peak Construction - Client Review";
+  const body =
+`New client review submission
+
+Name: ${name}
+Company: ${company || "Not provided"}
+Rating: ${rating.value}/5 stars
+
+Review:
+${review}
+
+The client has given permission to publish this review on the Diamond Peak Construction website and marketing materials.`;
+
+  window.location.href =
+    "mailto:diamondpeakconstruction1@gmail.com" +
+    "?subject=" + encodeURIComponent(subject) +
+    "&body=" + encodeURIComponent(body);
+});
+</script>
+
+</body>
+</html>
