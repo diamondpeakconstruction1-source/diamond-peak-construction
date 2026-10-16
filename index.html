@@ -91,6 +91,34 @@ footer {padding:28px 0;text-align:center;border-top:1px solid rgba(255,255,255,.
 section{padding:65px 0}
 .review-form,.review-card{padding:25px}
 }
+
+/* Dimensional architecture: progressive enhancement, no external dependencies. */
+body{overflow-x:hidden}
+.hero{isolation:isolate;perspective:1200px;min-height:950px}
+.hero>.container{position:relative;z-index:2;padding-bottom:64px}
+.peak-scene{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(ellipse at 75% 38%,#c9a24a20,transparent 55%)}
+.peak-scene svg{position:absolute;width:max(100%,1100px);height:100%;left:50%;transform:translateX(-50%);opacity:.48}
+.peak-grid{position:absolute;left:-50%;width:200%;height:70%;bottom:-36%;background-image:linear-gradient(#c9a24a35 1px,transparent 1px),linear-gradient(90deg,#c9a24a35 1px,transparent 1px);background-size:70px 70px;transform:rotateX(65deg);transform-origin:center top;mask-image:linear-gradient(transparent,#000 40%,transparent)}
+.hero h1{text-shadow:0 2px 0 #bbb,0 4px 0 #777,0 18px 35px #000}
+.logo{animation:peak-float 7s ease-in-out infinite;filter:drop-shadow(0 22px 12px #0009) drop-shadow(0 0 22px #c9a24a22)}
+@keyframes peak-float{0%,100%{transform:translateY(0) rotateY(-5deg)}50%{transform:translateY(-12px) rotateY(5deg)}}
+.cards{perspective:1000px}
+.card{position:relative;transform-style:preserve-3d;box-shadow:0 20px 35px #0008,5px 5px 0 #252018;border:1px solid #c9a24a40;transition:transform .2s ease,box-shadow .2s ease;will-change:auto}
+.card h3,.card .num{transform:translateZ(24px)}
+.card p{transform:translateZ(12px)}
+.card:before{content:'';position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,0%),#ead49a1c,transparent 65%);pointer-events:none}
+.card:hover{box-shadow:0 30px 50px #000b,5px 5px 0 #443821}
+.badges{perspective:900px;gap:22px}
+.badge{padding:24px 18px;background:linear-gradient(135deg,#24211a,#101010);box-shadow:7px 8px 0 #19160f,0 15px 25px #0006;transform:rotateY(-5deg)}
+.btn{transition:transform .2s,box-shadow .2s;box-shadow:0 5px 0 #795820,0 12px 28px #c9a24a25}
+.btn:hover{transform:translateY(-3px);box-shadow:0 8px 0 #795820,0 18px 30px #c9a24a35}
+.btn:active{transform:translateY(3px);box-shadow:0 2px 0 #795820}
+a:focus-visible,button:focus-visible{outline:2px solid #ead49a;outline-offset:6px}
+.rating input{display:block;position:absolute;opacity:0;width:1px;height:1px}
+.rating input:focus-visible+label{outline:2px solid #ead49a;outline-offset:4px}
+@media(max-width:760px){.hero{min-height:820px}.hero>.container{padding-bottom:0}.peak-scene svg{opacity:.28}.nav-links{display:flex;gap:13px;font-size:10px;letter-spacing:.3px}.nav-inner{flex-wrap:wrap;gap:15px}.nav-logo{font-size:12px}.badge{transform:none}.card{box-shadow:0 15px 25px #0008,3px 3px 0 #252018}.email{overflow-wrap:anywhere}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.logo{animation:none}.card,.btn{transition:none}.card{transform:none!important}}
+
 </style>
 </head>
 
@@ -108,6 +136,7 @@ section{padding:65px 0}
 </nav>
 
 <header class="hero">
+<div class="peak-scene" aria-hidden="true"><svg viewBox="0 0 1440 1000" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="peakGold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ead49a"/><stop offset="1" stop-color="#302514"/></linearGradient><linearGradient id="peakShade"><stop stop-color="#382c19"/><stop offset="1" stop-color="#0b0b0b"/></linearGradient></defs><path d="M-200 890 390 160 720 660 1090 250 1620 910Z" fill="#12110f" stroke="#c9a24a" stroke-opacity=".45"/><path d="M-200 890 390 160 255 680Z" fill="url(#peakGold)" opacity=".42"/><path d="m390 160 330 500-465 20Z" fill="url(#peakShade)"/><path d="m720 660 370-410-120 475Z" fill="url(#peakGold)" opacity=".4"/><path d="m1090 250 530 660-650-185Z" fill="url(#peakShade)"/><g fill="none" stroke="#ead49a" stroke-opacity=".22"><path d="m-200 890 455-210 135-520 330 500 250 65 120-475M255 680l130 210m585-165 130 180"/></g></svg><div class="peak-grid"></div></div>
 <div class="container">
 <img class="logo" src="diamond-peak-logo.png" alt="Diamond Peak Construction logo">
 <div class="kicker">General Contracting • Utah & Surrounding States</div>
@@ -172,12 +201,12 @@ section{padding:65px 0}
 
 <form id="reviewForm">
 <div class="form-group">
-<label>Your name *</label>
+<label for="reviewName">Your name *</label>
 <input type="text" id="reviewName" required>
 </div>
 
 <div class="form-group">
-<label>Company name (optional)</label>
+<label for="reviewCompany">Company name (optional)</label>
 <input type="text" id="reviewCompany">
 </div>
 
@@ -193,7 +222,7 @@ section{padding:65px 0}
 </div>
 
 <div class="form-group">
-<label>Your review *</label>
+<label for="reviewText">Your review *</label>
 <textarea id="reviewText" required placeholder="Tell us about the quality of our work, communication, professionalism, or your overall experience."></textarea>
 </div>
 
@@ -260,5 +289,14 @@ The client has given permission to publish this review on the Diamond Peak Const
 });
 </script>
 
+<script>
+// Pointer-based depth is optional; all content remains available without it.
+if(window.matchMedia('(hover:hover) and (pointer:fine)').matches && !window.matchMedia('(prefers-reduced-motion:reduce)').matches){
+ document.querySelectorAll('.card').forEach(card=>{
+  card.addEventListener('pointermove',e=>{const r=card.getBoundingClientRect();const x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;card.style.transform=`rotateX(${(0.5-y)*8}deg) rotateY(${(x-0.5)*10}deg) translateY(-5px)`;card.style.setProperty('--mx',`${x*100}%`);card.style.setProperty('--my',`${y*100}%`)});
+  card.addEventListener('pointerleave',()=>{card.style.transform=''});
+ });
+}
+</script>
 </body>
 </html>
